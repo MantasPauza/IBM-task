@@ -1,24 +1,34 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const apiRoutes = require('./routes/api');
+const cors = require('cors');
+const ccxt = require('ccxt');
 
 const app = express();
-const port = 3001;
+app.use(cors());
 
-// Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/cryptoDatabase', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.log(err));
+const port = 4000;
 
-// Middleware
-app.use(express.json());
-
-// Routes
-app.use('/api', apiRoutes);
+app.get('/cryptos', async (req, res) => {
+  const exchange = new ccxt.binance();
+  const markets = await exchange.loadMarkets();
+  const symbols = Object.keys(markets);
+  res.json(symbols);
+});
 
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Server running on http://localhost:${port}`);
 });
+
+app.get('/crypto/:symbol', async (req, res) => {
+  console.log("Received request for symbol: ", req.params.symbol);
+  try {
+    console.log("Symbol received:", req.params.symbol);
+    const { symbol } = req.params;
+    const exchange = new ccxt.binance();
+    const ticker = await exchange.fetchTicker(symbol);
+    res.json(ticker);
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send('An error occurred');
+  }
+});
+
