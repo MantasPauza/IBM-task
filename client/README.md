@@ -21,29 +21,29 @@ Before you begin, make sure you have:
 
 1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/MantasPauza/IBM-task.git
-    ```
+   ```bash
+   git clone https://github.com/MantasPauza/IBM-task.git
+   ```
 
 2. Navigate to the `client` directory:
 
-    ```bash
-    cd path/to/client
-    ```
+   ```bash
+   cd path/to/client
+   ```
 
 3. Install the dependencies:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 ## Running the App
 
 1. To start the development server:
 
-    ```bash
-    npm start
-    ```
+   ```bash
+   npm start
+   ```
 
 2. Open your browser and navigate to `http://localhost:3000`.
 

@@ -1,7 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const userActivityController = require('../controllers/userActivityController');
+const userActivityController = require("../controllers/userActivityController");
 
-router.post('/logActivity', userActivityController.logUserActivity);
+router.post("/logActivity", userActivityController.logUserActivity);
 
 module.exports = router;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function CryptoInfo({ selectedCrypto, cryptoInfo }) {
   return (
@@ -7,8 +7,12 @@ function CryptoInfo({ selectedCrypto, cryptoInfo }) {
       {cryptoInfo && (
         <div className="info-box mt-3">
           <h3>Information:</h3>
-          <p><strong>High:</strong> {cryptoInfo.high}</p>
-          <p><strong>Low:</strong> {cryptoInfo.low}</p>
+          <p>
+            <strong>High:</strong> {cryptoInfo.high}
+          </p>
+          <p>
+            <strong>Low:</strong> {cryptoInfo.low}
+          </p>
         </div>
       )}
     </div>

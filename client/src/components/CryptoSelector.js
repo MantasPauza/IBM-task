@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 function CryptoSelector({ cryptos, onSelect, selectedCrypto }) {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [filteredCryptos, setFilteredCryptos] = useState([]);
   const [isInvalid, setIsInvalid] = useState(false);
   const [apiError, setApiError] = useState(null);
@@ -11,24 +11,25 @@ function CryptoSelector({ cryptos, onSelect, selectedCrypto }) {
   let lastCallTimestamp = null;
 
   const logUserActivity = (actionType, symbol) => {
-    if (typeof actionType !== 'string' || typeof symbol !== 'string') {
-      console.error('Invalid parameter types');
+    if (typeof actionType !== "string" || typeof symbol !== "string") {
+      console.error("Invalid parameter types");
       return;
     }
 
     const now = Date.now();
     if (lastCallTimestamp && now - lastCallTimestamp < 5000) {
-      console.warn('Too many requests. Skipping.');
+      console.warn("Too many requests. Skipping.");
       return;
     }
     lastCallTimestamp = now;
 
-    axios.post('http://localhost:4000/api/logActivity', { actionType, symbol })
-      .then(response => {
-        console.log('Logged user activity:', response.data);
+    axios
+      .post("http://localhost:4000/api/logActivity", { actionType, symbol })
+      .then((response) => {
+        console.log("Logged user activity:", response.data);
       })
-      .catch(error => {
-        console.error('Error logging user activity:', error);
+      .catch((error) => {
+        console.error("Error logging user activity:", error);
         setApiError(true);
       });
   };
@@ -46,7 +47,7 @@ function CryptoSelector({ cryptos, onSelect, selectedCrypto }) {
           crypto.toLowerCase().includes(value.toLowerCase())
         );
         setFilteredCryptos(filtered);
-        logUserActivity('searched', value);
+        logUserActivity("searched", value);
       }, 300);
     } else {
       setIsInvalid(true);
@@ -56,7 +57,7 @@ function CryptoSelector({ cryptos, onSelect, selectedCrypto }) {
   const handleSelect = (crypto) => {
     setApiError(null);
     if (!cryptos.includes(crypto)) {
-      console.error('Invalid selection');
+      console.error("Invalid selection");
       setIsInvalid(true);
       return;
     }
@@ -64,20 +65,24 @@ function CryptoSelector({ cryptos, onSelect, selectedCrypto }) {
     onSelect(crypto);
     setSearchTerm(crypto);
     setFilteredCryptos([]);
-    logUserActivity('selected', crypto);
+    logUserActivity("selected", crypto);
   };
 
   return (
     <div className="mt-3 position-relative">
-      {isInvalid && <small className="form-text text-danger">Invalid input. Up to 30 characters allowed.</small>}
+      {isInvalid && (
+        <small className="form-text text-danger">
+          Invalid input. Up to 30 characters allowed.
+        </small>
+      )}
       {apiError && <p className="text-danger">Error logging your activity.</p>}
       <input
         type="text"
         placeholder="Search Cryptocurrency"
         value={searchTerm}
         onChange={handleSearch}
-        className={`form-control ${isInvalid ? 'is-invalid' : ''}`}
-        onClick={() => setSearchTerm('')}
+        className={`form-control ${isInvalid ? "is-invalid" : ""}`}
+        onClick={() => setSearchTerm("")}
       />
       {filteredCryptos.length > 0 && (
         <div className="position-absolute w-100 bg-white border rounded mt-1">

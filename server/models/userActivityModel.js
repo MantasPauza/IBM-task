@@ -1,14 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const UserActionSchema = new mongoose.Schema({
   actionType: {
     type: String,
-    enum: ['searched', 'selected'],
-    required: true
+    enum: ["searched", "selected"],
+    required: true,
   },
   symbol: {
     type: String,
-    required: true
+    required: true,
   },
   timestamp: {
     type: Date,
@@ -17,7 +17,7 @@ const UserActionSchema = new mongoose.Schema({
   userId: {
     type: String,
     default: null,
-  }
+  },
 });
 
-module.exports = mongoose.model('UserActivity', UserActionSchema);
+module.exports = mongoose.model("UserActivity", UserActionSchema);
