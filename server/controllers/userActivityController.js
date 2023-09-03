@@ -1,23 +1,30 @@
-const ccxt = require('ccxt');
 const UserActivity = require('../models/userActivityModel');
 
-exports.getCryptoData = async (req, res) => {
-  const exchange = new ccxt.binance();
-  const data = await exchange.fetchTicker('BTC/USDT');
-  res.json(data);
+const validateActivityData = (actionType, symbol) => {
+  if (!actionType || !symbol) {
+    return false;
+  }
+  return true;
 };
 
-exports.logUserActivity = (req, res) => {
+exports.logUserActivity = async (req, res) => {
+  const { actionType, symbol } = req.body;
+
+  if (!validateActivityData(actionType, symbol)) {
+    return res.status(400).json({ message: 'Bad Request: Missing or invalid fields.' });
+  }
+
   const newActivity = new UserActivity({
-    action: req.body.action,
-    timestamp: new Date()
+    actionType,
+    symbol,
+    timestamp: new Date(),
   });
 
-  newActivity.save()
-  .then(activity => {
-    res.json(activity);
-  })
-  .catch(err => {
-    res.status(400).json(err);
-  });
+  try {
+    const savedActivity = await newActivity.save();
+    res.status(201).json(savedActivity);
+  } catch (error) {
+    console.log("MongoDB Error:", error);
+    res.status(400).json({ message: 'Bad Request', error });
+  }
 };

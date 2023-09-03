@@ -1,11 +1,20 @@
 const express = require('express');
 const cors = require('cors');
 const ccxt = require('ccxt');
+const apiRoutes = require('./routes/api');
+const mongoose = require('mongoose');
 
 const app = express();
-app.use(cors());
 
-const port = 4000;
+mongoose.connect('mongodb://127.0.0.1:27017', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('Error connecting to MongoDB:', err));
+  
+app.use(cors());
+app.use(express.json());
+
+app.use('/api', apiRoutes);
+
 
 app.get("/ohlcv/:symbol", async (req, res) => {
   try {
@@ -22,8 +31,6 @@ app.get("/ohlcv/:symbol", async (req, res) => {
     } else {
       ohlcv = await exchange.fetchOHLCV(symbol, '1d');
     }
-
-    console.log(ohlcv);
     res.json(ohlcv);
   } catch (error) {
     console.error(error);
@@ -39,9 +46,7 @@ app.get('/cryptos', async (req, res) => {
 });
 
 app.get('/crypto/:symbol', async (req, res) => {
-  console.log("Received request for symbol: ", req.params.symbol);
   try {
-    console.log("Symbol received:", req.params.symbol);
     const { symbol } = req.params;
     const exchange = new ccxt.binance();
     const ticker = await exchange.fetchTicker(symbol);
@@ -52,6 +57,7 @@ app.get('/crypto/:symbol', async (req, res) => {
   }
 });
 
+const port = 4000;
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });

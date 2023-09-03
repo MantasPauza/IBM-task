@@ -1,0 +1,65 @@
+// Variables
+$primary-bg: #001831;
+$secondary-bg: #014288;
+$white: #fff;
+$black: rgba(0, 0, 0, 0.1);
+$dark-gray: #333;
+$light-gray: rgba(0, 0, 0, 0.1);
+$danger: #929292;
+
+// Reset Styles
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, $primary-bg, $secondary-bg);
+  min-height: 100vh;
+  color: $white;
+}
+
+// Container
+.container {
+  background-color: rgba($white, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px $black;
+  color: $dark-gray;
+}
+
+// Primary Background
+.bg-primary {
+  background-color: #007bff !important;
+}
+
+// Card
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px $light-gray;
+}
+
+// Headers
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+// Paragraphs and Selects
+p, select {
+  font-family: 'Roboto', sans-serif;
+}
+
+// Info Box
+.info-box {
+  @extend .container;
+  padding: 10px;
+  color: $dark-gray;
+}
+
+// Form Select
+.form-select {
+  border-radius: 10px;
+}
+
+// List Group Hover
+.list-group-item-action:hover {
+  background-color: $danger;
+}

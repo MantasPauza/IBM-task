@@ -20,8 +20,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "transformIgnorePatterns": ["/node_modules/(?!axios).+\\.js$"],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +46,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.14",
+    "@babel/preset-react": "^7.22.5",
+    "babel-jest": "^29.6.4"
   }
 }

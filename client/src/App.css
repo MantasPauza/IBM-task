@@ -6,7 +6,7 @@ body {
   color: #fff;
 }
 
-.container {
+.container, .info-box {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 15px;
@@ -21,23 +21,20 @@ body {
 .card {
   border: none;
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1, h2, h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 p, select {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .info-box {
-  background-color: rgba(255, 255, 255, 0.9);
   padding: 10px;
-  border-radius: 8px;
   color: #333;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .form-select {
@@ -46,4 +43,4 @@ p, select {
 
 .list-group-item-action:hover {
   background-color: #929292;
-}
+}/*# sourceMappingURL=App.css.map */

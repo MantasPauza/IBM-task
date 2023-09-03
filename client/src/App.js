@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import CryptoSelector from './CryptoSelector';
-import CryptoInfo from './CryptoInfo';
-import PriceChart from './PriceChart';
+import CryptoSelector from './components/CryptoSelector';
+import CryptoInfo from './components/CryptoInfo';
+import PriceChart from './components/PriceChart';
 
 
 function App() {
