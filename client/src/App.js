@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import CryptoSelector from './CryptoSelector';
 import CryptoInfo from './CryptoInfo';
+import PriceChart from './PriceChart';
+
 
 function App() {
   const [cryptos, setCryptos] = useState([]);
@@ -39,6 +41,7 @@ function App() {
       </h1>
       <CryptoSelector cryptos={cryptos} onSelect={handleSelectCrypto} selectedCrypto={selectedCrypto} />
       <CryptoInfo selectedCrypto={selectedCrypto} cryptoInfo={cryptoInfo} />
+      <PriceChart selectedCrypto={selectedCrypto} />
     </div>
   );
 }

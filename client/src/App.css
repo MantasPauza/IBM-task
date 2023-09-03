@@ -43,3 +43,7 @@ p, select {
 .form-select {
   border-radius: 10px;
 }
+
+.list-group-item-action:hover {
+  background-color: #929292;
+}

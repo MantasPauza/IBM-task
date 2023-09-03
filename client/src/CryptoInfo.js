@@ -9,7 +9,6 @@ function CryptoInfo({ selectedCrypto, cryptoInfo }) {
           <h3>Information:</h3>
           <p><strong>High:</strong> {cryptoInfo.high}</p>
           <p><strong>Low:</strong> {cryptoInfo.low}</p>
-          <p><strong>Volume:</strong> {cryptoInfo.volume}</p>
         </div>
       )}
     </div>
