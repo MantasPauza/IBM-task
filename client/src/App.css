@@ -1,43 +1,57 @@
-body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #001831, #014288);
-  min-height: 100vh;
-  color: #fff;
-}
-
-.container, .info-box {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  color: #333;
-}
-
-.bg-primary {
-  background-color: #007bff !important;
-}
-
-.card {
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+body,
 h1,
 h2,
-h3 {
-  font-family: "Poppins", sans-serif;
-}
-
+h3,
 p,
 select {
   font-family: "Roboto", sans-serif;
 }
 
-.info-box {
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  color: #fff;
+  background: linear-gradient(135deg, #001831, #014288);
+  transition: background-color 0.5s ease;
+}
+body .container,
+body .container .info-box {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.9)
+  );
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+  transition: all 0.4s ease-in-out;
+  animation: slideInFromLeft 1s ease-out;
+}
+body .container:hover,
+body .container .info-box:hover {
+  transform: scale(1.01);
+}
+body .container .info-box {
   padding: 10px;
   color: #333;
+  text-align: center;
+}
+body .bg-primary {
+  background: linear-gradient(135deg, rgba(0, 24, 49, 0.7), #014288) !important;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+p,
+select {
+  font-weight: 400;
 }
 
 .form-select {
@@ -46,4 +60,19 @@ select {
 
 .list-group-item-action:hover {
   background-color: #929292;
-}/*# sourceMappingURL=App.css.map */
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+input:focus,
+select:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgb(81, 203, 238);
+} /*# sourceMappingURL=App.css.map */

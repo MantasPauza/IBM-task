@@ -37,7 +37,7 @@ function PriceChart({ selectedCrypto }) {
     if (!selectedCrypto || !startDate || !endDate) return;
 
     setIsLoading(true);
-    setErrorMessage(null); // Reset error message when fetching new data
+    setErrorMessage(null);
 
     const fetchData = async () => {
       try {
