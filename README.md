@@ -11,17 +11,17 @@ This application fetches and displays cryptocurrency information. The frontend i
 
 ## Setup
 
-### Frontend
-
-1. Navigate to the frontend directory.
-2. Run `npm install` to install dependencies.
-3. Run `npm start` to start the frontend server.
-
 ### Backend
 
 1. Navigate to the backend directory.
 2. Run `npm install` to install dependencies.
 3. Run `npx nodemon` to start the backend server using Nodemon.
+
+### Frontend
+
+1. Navigate to the frontend directory.
+2. Run `npm install` to install dependencies.
+3. Run `npm start` to start the frontend server.
 
 ## Testing
 

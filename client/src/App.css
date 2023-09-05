@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-body,
-h1,
-h2,
-h3,
-p,
-select {
+body, h1, h2, h3, p, select {
   font-family: "Roboto", sans-serif;
 }
 
@@ -16,13 +11,8 @@ body {
   background: linear-gradient(135deg, #001831, #014288);
   transition: background-color 0.5s ease;
 }
-body .container,
-body .container .info-box {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0.9)
-  );
+body .container, body .container .info-box {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -30,27 +20,24 @@ body .container .info-box {
   transition: all 0.4s ease-in-out;
   animation: slideInFromLeft 1s ease-out;
 }
-body .container:hover,
-body .container .info-box:hover {
+body .container:hover, body .container .info-box:hover {
   transform: scale(1.01);
 }
 body .container .info-box {
+  animation: none !important;
   padding: 10px;
   color: #333;
   text-align: center;
 }
 body .bg-primary {
-  background: linear-gradient(135deg, rgba(0, 24, 49, 0.7), #014288) !important;
+  background: linear-gradient(135deg, #014288 #001831, 1) !important;
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   font-weight: 700;
 }
 
-p,
-select {
+p, select {
   font-weight: 400;
 }
 
@@ -70,9 +57,7 @@ select {
     transform: translateX(0);
   }
 }
-input:focus,
-select:focus,
-button:focus {
+input:focus, select:focus, button:focus {
   outline: none;
   box-shadow: 0 0 5px rgb(81, 203, 238);
-} /*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.css.map */

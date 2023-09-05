@@ -35,6 +35,7 @@ body {
     }
 
     .info-box {
+      animation: none !important;
       @extend .container;
       padding: 10px;
       color: $dark-gray;
@@ -43,7 +44,7 @@ body {
   }
 
   .bg-primary {
-    background: linear-gradient(135deg, rgba($secondary-bg, $primary-bg), ) !important;
+    background: linear-gradient(135deg, rgba($secondary-bg, 1) ($primary-bg, 1)) !important;
   }
 }
 
